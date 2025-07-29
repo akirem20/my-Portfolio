@@ -49,6 +49,7 @@ function Hero() {
   }
 
   return () => {
+      ScrollTrigger.refresh();
     ScrollTrigger.getAll().forEach((st) => st.kill());
     fadeIn.kill();
   };

@@ -62,6 +62,7 @@ function Skill() {
     );
 
     return () => {
+    
       ScrollTrigger.getAll().forEach(st => st.kill());
     };
   }, []);
@@ -83,7 +84,7 @@ function Skill() {
 
       <h1
         style={{ fontFamily: 'Papyrus, fantasy' }}
-        className=" mb-2 text-4xl font-bold mt-18 ml-2 sm:ml-6 relative z-10"
+        className=" mb-2 text-4xl font-bold mt-14 ml-2 sm:ml-6 relative z-10"
       >
         My Skills
       </h1>
