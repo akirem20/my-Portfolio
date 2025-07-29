@@ -77,7 +77,7 @@ function Skill() {
       {/* Background Image */}
       <div
         ref={bgImageRef}
-        className="absolute top-0 left-0 w-full h-full bg-[url('./AIbgimg.jpg')] bg-center bg-cover opacity-0 pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full bg-[url('/AIbgimg.jpg')] bg-center bg-cover opacity-0 pointer-events-none"
         style={{ zIndex: 0 }}
       ></div>
 

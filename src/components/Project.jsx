@@ -44,7 +44,7 @@ useEffect(() => {
     
     }}
     className="relative min-h-[100vh] bg-black text-white p-5">
-      <h1 style={{ fontFamily: 'Papyrus, fantasy' }} className="mt-10 mb-10 text-4xl font-bold text-center">
+      <h1 style={{ fontFamily: 'Papyrus, fantasy' }} className="mt-5 mb-5 text-4xl font-bold text-center">
         My Projects
       </h1>
 
