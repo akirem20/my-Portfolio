@@ -1,156 +1,155 @@
-import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import React, { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Skill() {
   const skillProg = [
-    { src: '/html.png', alt: 'HTML' },
-    { src: '/css.png', alt: 'CSS' },
-    { src: '/javascript.png', alt: 'JAVASCRIPT' },
-    { src: '/angularjs.svg', alt: 'ANGULAR.JS' },
-    { src: '/react.png', alt: 'REACT.JS' },
-    { src: '/gsap.png', alt: 'GSAP' },
+    { src: "/html.png", alt: "HTML" },
+    { src: "/css.png", alt: "CSS" },
+    { src: "/javascript.png", alt: "JAVASCRIPT" },
+    { src: "/angularjs.svg", alt: "ANGULAR.JS" },
+    { src: "/react.png", alt: "REACT.JS" },
+    { src: "/gsap.png", alt: "GSAP" },
   ];
 
   const containerRef = useRef(null);
   const Robhand = useRef(null);
   const Procont = useRef(null);
-  const bgImageRef = useRef(null); // ref for background image div
+  const bgImageRef = useRef(null);
 
   useEffect(() => {
-    if (!containerRef.current || !Robhand.current || !Procont.current || !bgImageRef.current) return;
+    if (
+      !containerRef.current ||
+      !Robhand.current ||
+      !Procont.current ||
+      !bgImageRef.current
+    )
+      return;
 
-    // Timeline for skill animations
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: containerRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
+        start: "top bottom",
+        end: "bottom top",
         scrub: true,
       },
     });
 
-    // Animate skill panel slide and hand rotation
-    tl.fromTo(
-      Procont.current,
-      { x: -60 },
-      { x: 0, ease: 'power2.inOut' },
-      0
-    );
+    tl.fromTo(Procont.current, { x: -60 }, { x: 0, ease: "power2.inOut" }, 0);
     tl.fromTo(
       Robhand.current,
       { rotate: -40 },
-      { rotate: 40, transformOrigin: 'left center', ease: 'power2.inOut' },
+      {
+        rotate: 40,
+        transformOrigin: "left center",
+        ease: "power2.inOut",
+      },
       0
     );
 
-    // Background image fade in/out synced with scroll
     gsap.fromTo(
       bgImageRef.current,
       { opacity: 0 },
       {
         opacity: 1,
-        ease: 'power1.inOut',
+        ease: "power1.inOut",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top center',
-          end: 'bottom center',
+          start: "top center",
+          end: "bottom center",
           scrub: true,
         },
       }
     );
 
     return () => {
-    
-      ScrollTrigger.getAll().forEach(st => st.kill());
+      ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, []);
 
   return (
-    <div
+    <section
       ref={containerRef}
-      className="w-full min-h-[120vh] p-3 bg-black text-white flex flex-col items-center relative overflow-hidden"
-      style={{ position: 'relative',
-       zIndex: 2, // increased
-       }}
+      className="relative w-full min-h-[150vh] bg-black text-white flex flex-col items-center overflow-hidden px-4 sm:px-4 py-32"
+      style={{ zIndex: 2 }}
+      aria-label="My Skills Section"
     >
       {/* Background Image */}
       <div
         ref={bgImageRef}
-        className="absolute top-0 left-0 w-full h-full bg-[url('/AIbgimg.jpg')] bg-center bg-cover opacity-0 pointer-events-none"
-        style={{ zIndex: 0 }}
+        className="pointer-events-none absolute inset-0 bg-center bg-cover opacity-0"
+        style={{ backgroundImage: "url('/AIbgimg.jpg')", zIndex: 0 }}
+        aria-hidden="true"
       ></div>
 
-      <h1
-        style={{ fontFamily: 'Papyrus, fantasy' }}
-        className=" mb-2 text-4xl font-bold mt-14 ml-2 sm:ml-6 relative z-10"
-      >
-        My Skills
-      </h1>
-
-      <div className="flex flex-col md:flex-row w-full max-w-7xl min-h-[60vh] relative z-10">
-        {/* Robot column */}
+       <h1
+    className="relative z-10 mb-30 mr-60 text-4xl font-bold font-[Papyrus,fantasy] select-none"
+  >
+    My Skills
+  </h1>
+      <div className="relative z-10 flex flex-col md:flex-row w-full max-w-7xl min-h-[60vh] gap-12 justify-center items-center">
+        {/* Robot Column */}
         <div
-          className="flex items-end justify-center mb-8 md:mb-0"
+          className="flex items-end justify-center"
           style={{
-            width: '100%',
-            maxWidth: '8cm',
-            minWidth: '5cm',
-            minHeight: '30rem',
-            position: 'relative',
+            width: "100%",
+            maxWidth: "8cm",
+            minWidth: "5cm",
+            minHeight: "30rem",
+            position: "relative",
             zIndex: 10,
           }}
         >
           <img
             src="/robotleft.jpg"
-            alt="AI Profile"
-            className="w-full h-[90%] object-contain"
-            style={{
-              minWidth: '5cm',
-              maxWidth: '8cm',
-              minHeight: '30rem',
-              maxHeight: '80vh',
-              zIndex: 1,
-            }}
+            alt="Robot Profile"
+            className="w-full max-w-[8cm] min-w-[5cm] max-h-[80vh] object-contain"
           />
           <img
             ref={Robhand}
             src="/ailefthand.jpg"
-            alt="AI Hand"
+            alt="Robot Left Hand"
             className="absolute"
             style={{
-              left: '15%',
-              top: '85%',
-              width: '90%',
-              height: '18%',
-              zIndex: 2,
-              transform: 'rotate(-15deg)',
-              transformOrigin: 'left center',
+              left: "15%",
+              top: "85%",
+              width: "90%",
+              height: "18%",
+              zIndex: 20,
+              transform: "rotate(-15deg)",
+              transformOrigin: "left center",
             }}
+            aria-hidden="true"
           />
         </div>
 
-        {/* Skills grid column */}
+        {/* Skills Grid */}
         <div
           ref={Procont}
-          className="mt-100 flex-1 flex items-center justify-center ml-4 sm:ml-8"
+          className="mt-40 flex-1 flex items-center justify-center ml-0 sm:ml-8"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 w-full max-w-[500px] border border-white rounded-xl shadow-lg backdrop-blur-md p-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full max-w-[500px] border border-white rounded-xl shadow-lg backdrop-blur-md p-6">
             {skillProg.map((skill, index) => (
-              <div key={index} className="flex flex-col items-center justify-center">
+              <div
+                key={index}
+                className="flex flex-col items-center justify-center"
+              >
                 <img
                   src={skill.src}
                   alt={skill.alt}
-                  className="p-2 w-16 h-16 sm:w-20 sm:h-20 border border-white rounded-xl shadow-lg backdrop-blur-md"
+                  className="w-16 h-16 sm:w-20 sm:h-20 border border-white rounded-xl shadow-lg backdrop-blur-md p-2"
                 />
-                <span className="mt-2 text-xs sm:text-base">{skill.alt}</span>
+                <span className="mt-2 text-xs sm:text-base select-none">
+                  {skill.alt}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
