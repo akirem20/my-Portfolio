@@ -38,7 +38,7 @@ useEffect(() => {
   return (
     <div ref={containerRef} 
     style={{
-      backgroundImage: 'url(bgimg1.jpg)',
+      backgroundImage: 'url(/bgimg1.jpg)',
       backgroundSize: 'cover',
        zIndex: 1, // add this
     
@@ -51,10 +51,10 @@ useEffect(() => {
       {/* Stacked Project Images */}
       <div className="relative w-full h-[600px] flex justify-center items-center overflow-hidden">
         {[
-          { src: 'project1.png', alt: 'Flat Render Project' },
-          { src: 'project2.png', alt: 'Mojito Project' },
-          { src: 'project3.png', alt: 'Flatease Project' },
-          { src: 'project4.png', alt: 'Movie Project' },
+          { src: '/project1.png', alt: 'Flat Render Project' },
+          { src: '/project2.png', alt: 'Mojito Project' },
+          { src: '/project3.png', alt: 'Flatease Project' },
+          { src: '/project4.png', alt: 'Movie Project' },
         ].map((project, index) => (
           <img
             key={index}

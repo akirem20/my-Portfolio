@@ -64,7 +64,7 @@ function Hero() {
         loop
         muted
         className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 z-0"
-        src="./bgvd.mov"
+        src="/bgvd.mov"
         type="video/mov"
       ></video>
 
@@ -103,7 +103,7 @@ function Hero() {
           >
             <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-white">
               <img
-                src="./devman.jpg"
+                src=""
                 alt="Developer"
                 className="w-full h-full object-cover"
               />

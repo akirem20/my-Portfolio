@@ -75,7 +75,7 @@ function Contact() {
   return (
   <div 
   style={{
-      backgroundImage: 'url(bgimg2.jpg)',
+      backgroundImage: 'url(/bgimg2.jpg)',
       backgroundSize: 'cover'
     }}
   className="bg-black min-h-screen text-white px-4 py-10">
@@ -93,13 +93,13 @@ function Contact() {
 <div className="flex flex-col items-center gap-4">
   <img
     className="w-48 h-84 object-cover rounded-lg"
-    src="robotleft.jpg"
+    src="/robotleft.jpg"
     alt="Left 1"
   />
   <img
     ref={imagesLRef}
     className="w-70 h-25 object-cover rounded-lg ml-16 sm:ml-20 md:ml-24 lg:ml-28 transition-all"
-    src="ailefthand.jpg"
+    src="/ailefthand.jpg"
     alt="Left 2"
   />
 </div>
@@ -168,13 +168,13 @@ function Contact() {
 <div className="flex flex-col items-center gap-4">
   <img
     className="w-48 h-84 object-cover rounded-lg"
-    src="robotright.jpg"
+    src="/robotright.jpg"
     alt="Right 1"
   />
   <img
     ref={imagesRRef}
     className="w-70 h-25 object-cover rounded-lg mr-16 sm:mr-20 md:mr-24 lg:mr-28 transition-all"
-    src="airighthand.jpg"
+    src="/airighthand.jpg"
     alt="Right 2"
   />
 </div>

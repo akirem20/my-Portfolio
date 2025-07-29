@@ -5,12 +5,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Skill() {
   const skillProg = [
-    { src: './html.png', alt: 'HTML' },
-    { src: './css.png', alt: 'CSS' },
-    { src: './javascript.png', alt: 'JAVASCRIPT' },
-    { src: './angularjs.svg', alt: 'ANGULAR.JS' },
-    { src: './react.png', alt: 'REACT.JS' },
-    { src: './gsap.png', alt: 'GSAP' },
+    { src: '/html.png', alt: 'HTML' },
+    { src: '/css.png', alt: 'CSS' },
+    { src: '/javascript.png', alt: 'JAVASCRIPT' },
+    { src: '/angularjs.svg', alt: 'ANGULAR.JS' },
+    { src: '/react.png', alt: 'REACT.JS' },
+    { src: '/gsap.png', alt: 'GSAP' },
   ];
 
   const containerRef = useRef(null);
@@ -103,7 +103,7 @@ function Skill() {
           }}
         >
           <img
-            src="./robotleft.jpg"
+            src="/robotleft.jpg"
             alt="AI Profile"
             className="w-full h-[90%] object-contain"
             style={{
@@ -116,7 +116,7 @@ function Skill() {
           />
           <img
             ref={Robhand}
-            src="./ailefthand.jpg"
+            src="/ailefthand.jpg"
             alt="AI Hand"
             className="absolute"
             style={{
