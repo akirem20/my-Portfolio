@@ -1,15 +1,22 @@
 @import "tailwindcss";
 
-
 body {
   background: #13161a;
-background: radial-gradient(circle, rgba(19, 22, 26, 1) 0%, rgba(59, 69, 64, 1) 50%, rgba(2, 14, 20, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(19, 22, 26, 1) 0%,
+    rgba(59, 69, 64, 1) 50%,
+    rgba(2, 14, 20, 1) 100%
+  );
 }
+
 @media (max-width: 1023px) {
   .no-motion-path {
     transform: none !important;
   }
 }
+
 body {
+  height: 100%;
   overflow-x: hidden;
 }

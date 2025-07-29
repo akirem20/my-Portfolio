@@ -12,46 +12,49 @@ function Hero() {
   const boxleft = useRef();
   const boxright = useRef();
 
- useEffect(() => {
+useEffect(() => {
   if (!boxleft.current || !boxright.current) return;
 
-  // Fade-in both boxes with vertical translate
-  const fadeIn = gsap.timeline();
+  // Delay GSAP init slightly to ensure SVG is ready in DOM (fixes Netlify bug)
+  const init = () => {
+    const fadeIn = gsap.timeline();
 
-  fadeIn.fromTo(
-    [boxleft.current, boxright.current],
-    { opacity: 0, y: -100, rotation: 0 }, // start with zero rotation
-    { opacity: 1, y: 0, rotation: 0, duration: 2, ease: "power2.out" }
-  );
-
-  // After fade-in completes, start left box motion path animation
-  if (window.innerWidth >= 1024) {
-    fadeIn.to(
-      boxleft.current,
-      {
-        motionPath: {
-          path: "#arcPath",
-          align: "#arcPath",
-          alignOrigin: [0.5, 0.5],
-        },
-        rotation: 360,
-        transformOrigin: "50% 50%",
-        ease: "power1.inOut",
-        scrollTrigger: {
-          trigger: boxleft.current,
-          start: "bottom bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      },
-      ">"
+    fadeIn.fromTo(
+      [boxleft.current, boxright.current],
+      { opacity: 0, y: -100, rotation: 0 },
+      { opacity: 1, y: 0, rotation: 0, duration: 2, ease: "power2.out" }
     );
-  }
+
+    // Motion path for large screens
+    if (window.innerWidth >= 1024) {
+      fadeIn.to(
+        boxleft.current,
+        {
+          motionPath: {
+            path: "#arcPath",
+            align: "#arcPath",
+            alignOrigin: [0.5, 0.5],
+          },
+          rotation: 360,
+          transformOrigin: "50% 50%",
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: boxleft.current,
+            start: "bottom bottom",
+            end: "bottom top",
+            scrub: 1,
+          },
+        },
+        ">"
+      );
+    }
+  };
+
+  gsap.delayedCall(0.1, init); // short delay helps after deploy
 
   return () => {
-      ScrollTrigger.refresh();
     ScrollTrigger.getAll().forEach((st) => st.kill());
-    fadeIn.kill();
+    gsap.killTweensOf("*");
   };
 }, []);
 
@@ -99,7 +102,10 @@ function Hero() {
           <div
             ref={boxleft}
             className="mt-40 no-motion-path w-full sm:w-4/5 md:w-3/5 lg:w-1/3 max-w-sm h-auto min-h-[15rem] flex items-center justify-center border border-white rounded-xl shadow-lg backdrop-blur-md z-20 p-6"
-            style={{ willChange: "transform" }}
+            style={{ willChange: "transform",
+             flexShrink: 0,             // prevent resizing
+            flexGrow: 0,
+             }}
           >
             <div className="w-48 h-48 md:w-60 md:h-60 rounded-full overflow-hidden border-4 border-white">
               <img
@@ -135,27 +141,27 @@ function Hero() {
         </div>
 
         {/* SVG Path for Motion Animation */}
-        <svg
-          width="750"
-          height="500"
-          style={{
-            position: "absolute",
-            top: "490px",
-            left: "270px",
-            overflow: "visible",
-            zIndex: 1,
-          }}
-        >
-          <g transform="rotate(15)">
-            <path
-              id="arcPath"
-              d="M1,1 Q400,-200 1000,400"
-              fill="none"
-              stroke="hidden"
-              strokeWidth="3"
-            />
-          </g>
-        </svg>
+       <svg
+  width="750"
+  height="500"
+  style={{
+    position: "absolute",
+    top: "490px",
+    left: "270px",
+    overflow: "visible",
+    zIndex: 1,
+  }}
+>
+  <g transform="rotate(15)">
+    <path
+      id="arcPath"
+      d="M1,1 Q400,-200 1000,400"
+      fill="none"
+      stroke="transparent"
+      strokeWidth="3"
+    />
+  </g>
+</svg>
       </div>
 
       {/* Other Sections */}
