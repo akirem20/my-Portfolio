@@ -101,7 +101,8 @@ useEffect(() => {
           {/* Box Left */}
           <div
             ref={boxleft}
-            className="mt-40 no-motion-path w-full sm:w-4/5 md:w-3/5 lg:w-1/3 max-w-sm h-auto min-h-[15rem] flex items-center justify-center border border-white rounded-xl shadow-lg backdrop-blur-md z-20 p-6"
+            className="max-w-[320px] overflow-hidden
+            mt-40 no-motion-path w-full sm:w-4/5 md:w-3/5 lg:w-1/3  h-auto min-h-[15rem] flex items-center justify-center border border-white rounded-xl shadow-lg backdrop-blur-md z-20 p-6"
             style={{ willChange: "transform",
              flexShrink: 0,             // prevent resizing
             flexGrow: 0,
@@ -141,27 +142,32 @@ useEffect(() => {
         </div>
 
         {/* SVG Path for Motion Animation */}
-       <svg
-  width="750"
-  height="500"
-  style={{
-    position: "absolute",
-    top: "490px",
-    left: "270px",
-    overflow: "visible",
-    zIndex: 1,
-  }}
+      <div
+  className="pointer-events-none"
+  style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", overflow: "visible", zIndex: 1 }}
 >
-  <g transform="rotate(15)">
-    <path
-      id="arcPath"
-      d="M1,1 Q400,-200 1000,400"
-      fill="none"
-      stroke="transparent"
-      strokeWidth="3"
-    />
-  </g>
-</svg>
+  <svg
+    width="750"
+    height="500"
+    style={{
+      position: "absolute",
+      top: "490px",
+      left: "270px",
+      overflow: "visible",
+    }}
+  >
+    <g transform="rotate(15)">
+      <path
+        id="arcPath"
+        d="M0,0 Q250,-100 600,300"
+        fill="none"
+        stroke="transparent"
+        strokeWidth="3"
+      />
+    </g>
+  </svg>
+</div>
+
       </div>
 
       {/* Other Sections */}
