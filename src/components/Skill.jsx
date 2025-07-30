@@ -117,7 +117,7 @@ function Skill() {
         {/* Skills Grid */}
         <div
           ref={Procont}
-          className="flex-1 flex items-center justify-center opacity-0"
+          className="mt-6 flex-1 flex items-center justify-center opacity-0"
         >
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full max-w-[500px] border border-white rounded-xl shadow-xl backdrop-blur-md p-6">
             {skillProg.map((skill, i) => (
