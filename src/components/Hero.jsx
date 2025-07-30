@@ -78,7 +78,7 @@ function Hero() {
           style={{ fontFamily: "Papyrus, fantasy" }}
           className="text-white font-bold text-xl select-none"
         >
-          My Portfolio
+          Front-End Developer
         </div>
         <ul className="mr-[30%] flex space-x-8 gap-6">
     {["home", "skill", "projects", "contact"].map((link) => {
@@ -149,11 +149,10 @@ function Hero() {
             className="text-white text-base md:text-lg leading-relaxed font-medium"
             style={{ fontFamily: "Papyrus, fantasy" }}
           >
-            I'm a Front-End Developer skilled in React, JavaScript, and Tailwind
-            CSS. I craft sleek, responsive, and user-friendly web applications with
-            clean code and smooth animations. Passionate about transforming ideas
-            into immersive digital experiences that captivate users and deliver
-            real-world results.
+           
+  I’m Akirem Samuel, a front-end developer skilled in React, Angular, GSAP, and Nodejs . I build responsive, interactive web apps with a focus on clean design and smooth user experience.
+
+With a background in mechatronics, I combine technical precision with creative problem-solving to deliver fast, functional, and visually engaging websites.
           </p>
         </div>
       </div>

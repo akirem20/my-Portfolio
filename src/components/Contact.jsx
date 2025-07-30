@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,6 +10,7 @@ function Contact() {
   const containerRef = useRef(null);
   const imagesLRef = useRef(null);
   const imagesRRef = useRef(null);
+  const [sent, setSent] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -22,8 +23,9 @@ function Contact() {
         're76-GwB54Oie_pCj'
       )
       .then(() => {
-        alert('✅ Message sent successfully!');
+        setSent(true);
         e.target.reset();
+        setTimeout(() => setSent(false), 4000);
       })
       .catch((error) => {
         console.error('EmailJS Error:', error);
@@ -88,17 +90,16 @@ function Contact() {
   return (
     <div
       style={{
-        backgroundImage: 'url(/bgimg2.jpg)', // <-- Check that /bgimg2.jpg is correct path & accessible
+        backgroundImage: 'url(/bgimg2.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat', // Ensure it doesn't tile weirdly
-        minHeight: '100vh', // Make sure container fills viewport height
-        position: 'relative', // Important for layering children with z-index
-        zIndex: 0, // Base layer
+        backgroundRepeat: 'no-repeat',
+        minHeight: '100vh',
+        position: 'relative',
+        zIndex: 0,
       }}
       className="text-white px-4 py-10"
     >
-      {/* Title Centered */}
       <h1
         className="text-4xl font-bold text-center mb-10 select-none relative z-20"
         style={{ fontFamily: 'Papyrus, fantasy' }}
@@ -106,7 +107,6 @@ function Contact() {
         Contact Me
       </h1>
 
-      {/* Main Container */}
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10 max-w-7xl mx-auto relative z-20">
         {/* Left Images */}
         <div className="flex flex-col items-center gap-6 flex-shrink-0">
@@ -123,25 +123,21 @@ function Contact() {
           />
         </div>
 
-        {/* Center Form Section */}
+        {/* Form Section */}
         <div
           ref={containerRef}
           style={{ fontFamily: 'Papyrus, fantasy' }}
           className="flex-1 max-w-xl w-full text-center space-y-6 bg-white bg-opacity-90 text-black p-6 rounded-2xl shadow-lg"
         >
           <p className="text-lg leading-relaxed px-4 lg:px-0">
-            I’m currently open to <strong>job opportunities</strong> and{' '}
-            <strong>freelance projects</strong>.
-            <br />
-            Feel free to reach out for <strong>collaborations</strong> or{' '}
-            <strong>work inquiries</strong>!
+            I’m currently open to <strong>job opportunities</strong> and <strong>freelance projects</strong>.<br />
+            Feel free to reach out for <strong>collaborations</strong> or <strong>work inquiries</strong>!
           </p>
 
-          {/* Contact Form */}
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="space-y-5"
+            className="space-y-5 text-left"
           >
             <div>
               <label className="block text-sm font-semibold mb-1">Name</label>
@@ -181,6 +177,12 @@ function Contact() {
             >
               Send Message
             </button>
+
+            {sent && (
+              <p className="text-green-600 mt-3 text-sm text-center">
+                ✅ Message sent successfully!
+              </p>
+            )}
           </form>
         </div>
 
