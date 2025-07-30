@@ -80,7 +80,7 @@ function Hero() {
         >
           Front-End Developer
         </div>
-        <ul className="mr-[30%] flex space-x-8 gap-6">
+        <ul className="mr-[30%] flex space-x-8 gap-2">
     {["home", "skill", "projects", "contact"].map((link) => {
       if (link === "home") {
         return (
