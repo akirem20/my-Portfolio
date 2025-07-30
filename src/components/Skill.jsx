@@ -83,7 +83,7 @@ function Skill() {
       />
 
       {/* Title */}
-      <h1 className="relative z-10 mb-20 text-4xl font-bold font-[Papyrus,fantasy] select-none">
+      <h1 className="mr-150 relative z-10 mb-20 text-4xl font-bold font-[Papyrus,fantasy] select-none">
         My Skills
       </h1>
 

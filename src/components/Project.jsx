@@ -82,7 +82,7 @@ function Project() {
     >
       <h1
         style={{ fontFamily: 'Papyrus, fantasy' }}
-        className="mb-10 text-center text-3xl sm:text-4xl font-bold px-4 sm:px-0 max-w-4xl mx-auto"
+        className=" mr-150 mb-10 text-center text-3xl sm:text-4xl font-bold px-4 sm:px-0 max-w-4xl mx-auto"
       >
         My Projects
       </h1>
