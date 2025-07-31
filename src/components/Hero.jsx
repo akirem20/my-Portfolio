@@ -137,7 +137,7 @@ function Hero() {
         {/* Right Box */}
         <div
           ref={boxright}
-          className=" mt-25 w-full sm:w-11/12 md:w-3/4 lg:w-2/5 max-w-lg min-h-[15rem] border border-white/30 rounded-2xl shadow-2xl backdrop-blur-lg p-6 md:p-8 flex flex-col gap-6 bg-white/5"
+          className=" mt-20 w-full sm:w-11/12 md:w-3/4 lg:w-2/5 max-w-lg min-h-[15rem] border border-white/30 rounded-2xl shadow-2xl backdrop-blur-lg p-6 md:p-8 flex flex-col gap-6 bg-white/5"
         >
           <h1
             className="text-white text-3xl md:text-5xl font-extrabold tracking-wide select-none"
