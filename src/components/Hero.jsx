@@ -57,7 +57,7 @@ function Hero() {
   }, []);
 
   // Example image src, set to null or your real image path
-  const developerImageSrc = '/pict.jpg'; // Replace null with your image URL or leave null
+  const developerImageSrc = '/picture.png'; // Replace null with your image URL or leave null
 
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden bg-gradient-to-b from-[#13161a] via-[#3b4540] to-[#020e14]">
