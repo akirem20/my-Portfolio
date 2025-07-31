@@ -137,7 +137,7 @@ function Hero() {
         {/* Right Box */}
         <div
           ref={boxright}
-          className="w-full sm:w-11/12 md:w-3/4 lg:w-2/5 max-w-lg min-h-[15rem] border border-white/30 rounded-2xl shadow-2xl backdrop-blur-lg p-6 md:p-8 flex flex-col gap-6 bg-white/5"
+          className=" mt-25 w-full sm:w-11/12 md:w-3/4 lg:w-2/5 max-w-lg min-h-[15rem] border border-white/30 rounded-2xl shadow-2xl backdrop-blur-lg p-6 md:p-8 flex flex-col gap-6 bg-white/5"
         >
           <h1
             className="text-white text-3xl md:text-5xl font-extrabold tracking-wide select-none"
@@ -150,10 +150,9 @@ function Hero() {
             style={{ fontFamily: "Papyrus, fantasy" }}
           >
            
-  I’m Akirem Samuel, a front-end developer skilled in React, Angular, GSAP, and Nodejs . I build responsive, interactive web apps with a focus on clean design and smooth user experience.
+ Hi, I’m Akirem Samuel, a passionate front-end developer skilled in React, Angular, GSAP, and Node.js. I specialize in building responsive, interactive web apps that focus on clean design and smooth user experience.
 
-With a background in mechatronics, I combine technical precision with creative problem-solving to deliver fast, functional, and visually engaging websites.
-          </p>
+With a background in mechatronics engineering, I bring a unique mix of technical precision and creative problem-solving to every project. My goal is to create fast, functional, and visually engaging websites that make an impact.</p>
         </div>
       </div>
 
